@@ -1,0 +1,9 @@
+Package: loadAPI
+Type: Package
+Title: Connect to the API and download data to the R session
+Version: 1.0
+Date: 2015-09-25
+Author: Violeta and Yixuan
+Maintainer: yixuan<yixxu916@student.liu.se>
+Description: Access the data in the API.
+License: GPL-2 | GPL-3
