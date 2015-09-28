@@ -1,9 +1,9 @@
 #' Create GET request
 #' 
-#' Make GET request to Google Geocode API
+#' Make GET request to Google Geocode API.
 #' 
-#' @param address the address is real address that you wish to search
-#' @param 
+#' @param address the address is real address that you wish to search.
+
 geocode_GET <- function(address){
   link <- paste("https://maps.googleapis.com/maps/api/geocode/json?","address=", address, "&key=AIzaSyCoWpv7VCmdP_EZLEidQzUpxyOC-HC5Ui8", sep="")
   request <- getURL(link)
