@@ -9,4 +9,5 @@ Description: Access the data in the API.
 License: GPL-2 | GPL-3
 Suggests: testthat
 import: jsonlite,
-        RCurl
+        RCurl,
+        bitops
