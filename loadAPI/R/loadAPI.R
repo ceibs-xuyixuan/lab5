@@ -3,19 +3,27 @@
 #' Make GET request to Google Geocode API.
 #' 
 #' @param address the address is real address that you wish to search.
-
-geocode_GET <- function(address){
+#' @param component short name of country
+geocode_GET <- function(address, component = NULL){
   address1 <- gsub("\\s", "+", address)
-  link <- paste("https://maps.googleapis.com/maps/api/geocode/json?","address=", address1, "&key=AIzaSyCoWpv7VCmdP_EZLEidQzUpxyOC-HC5Ui8", sep="")
+  if (is.null(component)){
+    link <- paste("https://maps.googleapis.com/maps/api/geocode/json?","address=", address1, "&key=AIzaSyCoWpv7VCmdP_EZLEidQzUpxyOC-HC5Ui8", sep="")
+  } else {
+    link <-paste("https://maps.googleapis.com/maps/api/geocode/json?","address=", address1, "&components=country", component, "&key=AIzaSyCoWpv7VCmdP_EZLEidQzUpxyOC-HC5Ui8", sep="")
+  }
   request <- getURL(link)
   # request
   geo <- fromJSON(request)
-  # geo
-  if(geo$status == "OK"){
-    lat <- geo$results[[3]]$location$lat
-    lng <- geo$results[[3]]$location$lng
-    return (c(lat, lng, address))
-  }
+#   geo
+#   class()
+   if(geo$status == "OK"){
+     address_formatted <- matrix(geo$results$formatted_address)
+     lat <- matrix(geo$results$geometry$location$lat)
+     lng <- matrix(geo$results$geometry$location$lng)
+     geoma <-cbind(lat, lng, address_formatted)
+     colnames(geoma) <- c("lat", "lng", "formatted address")
+     return(geoma)
+   }
 }
 
 # ## an example

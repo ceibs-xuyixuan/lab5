@@ -4,10 +4,12 @@
 \alias{geocode_GET}
 \title{Create GET request}
 \usage{
-geocode_GET(address)
+geocode_GET(address, component = NULL)
 }
 \arguments{
 \item{address}{the address is real address that you wish to search.}
+
+\item{component}{short name of country}
 }
 \description{
 Make GET request to Google Geocode API.
