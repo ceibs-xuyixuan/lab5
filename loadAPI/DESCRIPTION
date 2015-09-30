@@ -7,11 +7,12 @@ Author: Violeta and Yixuan
 Maintainer: yixuan<yixxu916@student.liu.se>
 Description: Access the data in the API.
 License: GPL-2 | GPL-3
-Suggests:
+Suggests: 
     knitr,
     devtools,
     roxygen2,
-    testthat
+    testthat,
+    rmarkdown
 Imports: 
    jsonlite,
    bitops,
