@@ -11,9 +11,9 @@ geocode_GET <- function(address, component = NULL){
   } else {
     link <-paste("https://maps.googleapis.com/maps/api/geocode/json?","address=", address1, "&components=country", component, "&key=AIzaSyCoWpv7VCmdP_EZLEidQzUpxyOC-HC5Ui8", sep="")
   }
-  request <- getURL(link)
+  request <- RCurl::getURL(link)
   # request
-  geo <- fromJSON(request)
+  geo <- jsonlite::fromJSON(request)
 #   geo
 #   class()
    if(geo$status == "OK"){
@@ -22,7 +22,7 @@ geocode_GET <- function(address, component = NULL){
      lng <- matrix(geo$results$geometry$location$lng)
      geoma <-cbind(lat, lng, address_formatted)
      colnames(geoma) <- c("lat", "lng", "formatted address")
-     return(geoma)
+     return(as.matrix(geoma))
    }
 }
 

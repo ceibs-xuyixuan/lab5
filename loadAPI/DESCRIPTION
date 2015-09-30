@@ -7,7 +7,13 @@ Author: Violeta and Yixuan
 Maintainer: yixuan<yixxu916@student.liu.se>
 Description: Access the data in the API.
 License: GPL-2 | GPL-3
-Suggests: testthat
-import: jsonlite,
-        RCurl,
-        bitops
+Suggests:
+    knitr,
+    devtools,
+    roxygen2,
+    testthat
+Imports: 
+   jsonlite,
+   bitops,
+   RCurl
+VignetteBuilder: knitr
